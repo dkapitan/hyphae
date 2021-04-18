@@ -11,11 +11,11 @@ from operator import itemgetter
 from numpy.random import normal as normal
 
 
-NMAX = 2*1e7 # maxmimum number of nodes
+NMAX = 20000000  # maxmimum number of nodes
 SIZE = 15000
 ONE = 1./SIZE
 
-RAD = 40.*ONE # 
+RAD = 40.*ONE 
 
 ZONEWIDTH = 2.*(RAD/ONE)
 
@@ -56,12 +56,12 @@ INIT_CIRCLE = 0.45
 
 
 print
-print 'filename',filename
-print 'SIZE', SIZE
-print 'ZONEWIDTH', ZONEWIDTH
-print 'RAD', RAD
-print 'ZONES', ZONES
-print 'one', ONE
+print('filename',filename)
+print('SIZE', SIZE)
+print('ZONEWIDTH', ZONEWIDTH)
+print('RAD', RAD)
+print('ZONES', ZONES)
+print('one', ONE)
 
 
 class Render(object):
@@ -198,7 +198,7 @@ def main():
   render = Render(SIZE)
   #render.get_colors(COLOR_FILENAME)
 
-  Z = [[] for i in xrange((ZONES+2)**2)]
+  Z = [[] for i in range((ZONES+2)**2)]
 
   R = np.zeros(NMAX,'float')
   X = np.zeros(NMAX,'float')
@@ -261,7 +261,7 @@ def main():
 
       itt += 1
       if not itt%1000:
-        print itt, num, filename
+        print(itt, num, filename)
 
       added_new = False
 
@@ -352,7 +352,7 @@ def main():
 
         if not num % DRAW_SKIP and added_new:
           render.sur.write_to_png('{:s}.{:d}.png'.format(filename,num))
-          print itt, num, time()-ti
+          print(itt, num, time()-ti)
           ti = time()
           drawn = num
 
